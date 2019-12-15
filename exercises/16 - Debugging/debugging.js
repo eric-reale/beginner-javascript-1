@@ -30,12 +30,12 @@ people.forEach((person, index) => {
 // Break On Attribute
 
 // Some Setup Code
-
 function doctorize(name) {
   return `Dr. ${name}`;
 }
 
 function greet(name) {
+  // doesntExist();
   return `Hello ${name}`;
 }
 
