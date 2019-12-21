@@ -160,7 +160,7 @@
       const birthday = new Date(person.birthday);
       const now = Date.now(); // or new Date()
       console.log(now);
-      const age = now - birthday;
+      const age = Math.floor((now - birthday) / 31536000000);
       console.log(age);
 
       return {
@@ -169,6 +169,71 @@
       }
     })
     console.table(cleanPeople)
+
+    const over40 = cleanPeople.filter(function(person) { // filter works by looping over entire array and determinig true or false on each item for your condition
+      return person.age > 40
+    });
+    console.table(over40);
+
+    // Another way to write with implicit return
+    const over30 = cleanPeople.filter(person => person.age > 30);
+    console.table(over30);
+
+    // If you need to create a function to check for true or false and to save the true, do this implicit return above
+
+    // Filter() vs Find(). Filter selects all the items that match condition while find() takes the first one.
+    // Filter always returns an array.
+
+    const student565a = students.find(student => student.id === '565a')
+    console.log(student565a);
+
+    function findByID(id) {
+      return function isStudent(student) {
+        return student.id === id
+      }
+    }
+
+    const student = students.find(findByID('565a'));
+    console.log(student);
+
+    function findByProp(prop, propWeAreLookingFor) {
+      return function isStudent(student) {
+        // console.log(student); Will log EVERY student. Implies that it is looping/iterating through whole array
+        return student[prop] === propWeAreLookingFor;
+      }
+    }
+
+    const student3 = students.find(findByProp('id', '565a'));
+    const student4 = students.find(findByProp('first_name', 'Micki'));
+
+    console.clear();
+
+    function tallyNumbers(tally, currentTotal) {
+      console.log(`The current tally is ${tally}`);
+      console.log(`The current total is ${currentTotal}`);
+      console.log('--------------');
+
+      // return the current tally PLUS the amount of this order
+      return tally + currentTotal;
+    }
+    const allOrders = orderTotals.reduce(tallyNumbers, 0);
+
+    console.clear();
+
+    function inventoryReducer(totals, item) {
+      // console.log(totals);
+      // console.log(item);
+      // console.log('----');
+      console.log(`Looping over ${item.type}`);
+      totals[item.type] = totals[item.type] + 1 || 1;
+      return totals
+    }
+
+    const inventoryCounts = inventory.reduce(inventoryReducer, {});
+    console.log(inventoryCounts);
+
+    const totalInventoryPrice = inventory.reduce((acc, item) => acc + item.price, 0);
+    console.log(totalInventoryPrice);
 
   </script>
 </body>
