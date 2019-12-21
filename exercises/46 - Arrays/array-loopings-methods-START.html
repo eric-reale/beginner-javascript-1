@@ -128,6 +128,47 @@
     /*
       Looping Methods
     */
+    // toppings.forEach(topping => console.log(topping));
+
+    function toppingIteration(topping, index, originalArray) { // topping, index, and originalArray are passed in automatically when we call this function within the forEach method on toppings
+       // log the topping
+      console.log(topping);
+      // log the prev topping if there is one
+      const prevTopping = originalArray[index - 1]
+      prevTopping ? console.log(prevTopping) : null;
+      // log the next topping if there is one
+      const nextTopping = originalArray[index + 1];
+      nextTopping && console.log(nextTopping);
+       // if its the last item in the array, say good bye
+       index === originalArray.length - 1 ? console.log('Goodbye') : null
+       console.log('---------');
+    }
+
+    toppings.forEach(toppingIteration);
+
+
+    console.clear();
+
+    function addArms(face) {
+      return ` arms ${face} arms`
+    }
+
+    const toys = faces.map(addArms)
+
+    const cleanPeople = people.map(function(person) {
+      console.log(person);
+      const birthday = new Date(person.birthday);
+      const now = Date.now(); // or new Date()
+      console.log(now);
+      const age = now - birthday;
+      console.log(age);
+
+      return {
+        age: age,
+        name: `${person.names.first} ${person.names.last}`
+      }
+    })
+    console.table(cleanPeople)
 
   </script>
 </body>

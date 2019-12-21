@@ -18,21 +18,38 @@
     console.log(names.length);
     console.log(names[names.length - 1]);
 
+    // Mutation Method - DO CHANGE THE ORIGINAL DATA
+    const numbers= [1,2, 3, 4, 5, 6]
+    numbers.reverse();
+    console.log(numbers) // == reversed the numbers permanently
+    // anytime you want to use a mutation method and not mutate the original array
+    // we need to take a copy of the array
+    const numbersReversed = [...numbers];
+    numbersReversed.reversed();
+    // OR
+    const numbersReversed = [...numbers].reversed();
+
+    // Immutable
+    const pizzaSlice = numbers.slice(2,3); // = 4
+
     names.push('lux');
     console.log(names);
     const names2 = [...names, 'lux'];
-    names.unshift('poppy');
+    names.unshift('poppy'); //unshift() adds to front of array
     console.log(names);
-    const names3 = ['poppy', ...names];
+    const names3 = ['poppy', ...names]; // copies array and then adds poppy to front
     console.log(names3);
 
+    // Can't add to an array in the middle (unlike push and unshift adding to back or front)
+    // Need to create a new array using slice
     const bikes = ['bianchi', 'miele', 'panasonic', 'miyata'];
     const newBikes = [
-      ...bikes.slice(0, 2),
-      'benotto',
-      ...bikes.slice(2)
+      ...bikes.slice(0, 2), // goes index 0 and 1 (up until 2),
+      'benotto', //adds 'benotto'
+      ...bikes.slice(2) // continues from index 2 (including 2 until end)
     ];
 
+    // Example here of removing something in the middle from the array
     const newBikes2 = [
       ...newBikes.slice(0, 3),
       ...newBikes.slice(4)
@@ -48,6 +65,7 @@
       { text: 'so good', id: 433 },
     ];
 
+    //findIndex method
     function deleteComment(id, comments) {
       // first find the index of the item in the array
       const commentIndex = comments.findIndex(comment => comment.id === id);

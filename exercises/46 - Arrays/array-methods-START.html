@@ -45,35 +45,74 @@
     */
 
     // Array.of();
+    const newArray = Array.of('wes')
 
     // Make a function that creates a range from x to y with Array.from();
+    const ericRange = Array.from({length: 10}, function(_item) {
+      return 'eric'
+    })
 
+    function createRange(x,y) {
+      const range = Array.from({ length: (y+1) - (x)}, function(_item, index) {
+        return index + x
+      })
+      return range
+    }
     // Check if the last array you created is really an array with Array.isArray();
+    console.log(Array.isArray(ericRange));
 
     // Take the meats object and make three arrays with Object.entries(), Object.keys, Object.values()
+      Object.entries(meats);
+      Object.keys(meats);
+      Object.values(meats);
 
+    Object.entries(meats).forEach(([meat, qty]) => { // destructuring <--
+      // const key = entry[0];
+      // const value = entry[1];
+      // const [key, value] = entry;
+      console.log(meat, qty);
+    });
     /*
       Instance Methods
     */
 
     // Display all bun types with " or " - use join()
+    console.log(buns.join(" or "));
 
     // We have a string "hot dogs,hamburgers,sausages,corn" - use split() to turn it into a string
+    const stringToArray = "hot dogs,hamburgers,sausages,corn".split(",");
+    console.log(stringToArray);
 
     // take the last item off toppings with pop()
+    (stringToArray.pop());
+    console.log(stringToArray)
     // add it back with push()
+    stringToArray.push('corn');
+    console.log(stringToArray);
     // take the first item off toppings with shift()
+    stringToArray.shift();
+    console.log(stringToArray);
     // add it back in with unshift()
+    stringToArray.unshift('hot dogs');
+    console.log(stringToArray);
     // Do the last four,but immutable (with spreads and new variables)
 
 
     // Make a copy of the toppings array with slice()
+    const toppings2 = stringToArray.slice()
     // Make a copy of the toppings array with a spread
+    const toppings3 = [...toppings];
     // take out items 3 to 5 of your new toppings array with splice()
+    const toppings4 = toppings3.splice(3,5)
     // find the index of Avocado with indexOf() / lastIndexOf()
+    const avoIndex = toppings4.indexOf('Avocado');
     // Check if hot sauce is in the toppings with includes()
+    console.log(toppings4.includes('Hot sauce'));
     // add it if it's not
+    if (!toppings4.includes('Hot sauce'))
+      toppings4.push('hot sauce')
     // flip those toppings around with reverse()
+    toppings4.reverse();
 
     /*
       Callback Methods

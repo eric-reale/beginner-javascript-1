@@ -9,21 +9,24 @@
 </head>
 
 <body>
-  * empty array
-  * empty object
-
   <h2>Truthy Values</h2>
-  * 1
-  * -10
-  * full string
-  * a string of "0"
+ <ul>
+  <li>1</li>
+  <li>-10</li>
+  <li>full string</li>
+  <li>a string of "0"</li>
+  <li>empty array</li>
+  <li>empty object</li>
+  </ul>
 
   <h2>Falsy Values</h2>
-  * 0
-  * undefined variable
-  * Variable set to null
-  * a variable set to `"hello" - 10` NaN
-  * empty string
+  <ul>
+  <li>0</li>
+  <li>undefined variable</li>
+  <li>Variable set to null</li>
+  <li>a variable set to `"hello" - 10` NaN</li>
+  <li>empty string</li>
+  </ul>
 
   <script>
     const age = 100;
@@ -144,8 +147,10 @@
       console.log('Some checks failed');
     }
     // isAdmin ? showAdminBar() : null;
-    isAdmin && showAdminBar();
 
+    // ERIC notes: this below is looking at variable isAdmin and then function showAdminBar() and will only do the function if the first one is true.
+    isAdmin && showAdminBar();
+    // Also can write it like this:
     if (isAdmin) { showAdminBar(); }
 
   </script>
