@@ -13,7 +13,7 @@ function Gallery(gallery) {
     console.info('Opening Modal...');
     // First check if the modal is already open
     if (modal.matches('.open')) {
-      console.info('Madal already open');
+      console.info('Modal already open');
       return; // stop the function from running
     }
     modal.classList.add('open');

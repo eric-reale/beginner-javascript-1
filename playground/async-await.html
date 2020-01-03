@@ -46,7 +46,8 @@
       const pizzaPromise1 = makePizza(['pepperoni']);
       const pizzaPromise2 = makePizza(['mushrooms']);
       const [pep, mush] = await Promise.all([pizzaPromise1, pizzaPromise2]);
-      console.log(pep, mush);
+      console.log(pep);
+      console.log(mush);
     }
 
     makeDinner();
