@@ -12,19 +12,29 @@
   <p class="user"></p>
 
   <script>
+    // function wait(ms = 0) {
+    //   return new Promise(resolve => setTimeout(resolve, ms));
+    // }
+
+    // function getRandomBetween(min = 20, max = 150, randomNumber = Math.random()) {
+    //   return Math.floor(randomNumber * (max - min) + min);
+    // }
     const baseEndpoint = 'https://api.github.com';
     const usersEndpoint = `${baseEndpoint}/users`;
     const userEl = document.querySelector('.user');
 
     async function displayUser(username) {
       userEl.textContent = 'loading...';
+
+      // If you wanted to wait for a specific amonunt of time (perhaps to display something fun)
+      // await wait(5000);
       const response = await fetch(`${usersEndpoint}/${username}`);
       const data = await response.json();
       console.log(data);
       console.log(data.blog);
       console.log(data.name);
       console.log(data.location);
-      userEl.textContent = `${data.name} - ${data.blog}`;
+      userEl.textContent = `${data.name} - ${data.blog} - ${data.location}`;
     }
 
     function handleError(err) {
@@ -33,7 +43,7 @@
       userEl.textContent = `Something went wrong: ${err}`
     }
 
-    displayUser('stolinski').catch(handleError);
+    displayUser('eric-reale').catch(handleError);
 
   </script>
 </body>
