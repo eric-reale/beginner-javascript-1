@@ -15,7 +15,6 @@ async function handleSubmit(event) {
   // console.log(`this is ${el}`);
   console.log(el.query.value); // same as below
   console.log(form.query.value); // same as above
-
   fetchAndDisplay(form.query.value);
 }
 
